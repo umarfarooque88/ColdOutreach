@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outreach AI Dashboard</title>
+    <link rel="stylesheet" href="DashboardStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="logo">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2>Outreach.AI</h2>
+            </div>
+            
+            <div class="header-buttons">
+                <button class="menu-toggle" id="menuToggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8zM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <nav class="sidebar" id="sidebar">
+                <a href="#dashboard" class="nav-link" data-screen="dashboard">Dashboard</a>
+                <a href="#compose-outreach" class="nav-link" data-screen="compose-outreach">Compose Outreach</a>
+                <a href="#client-finder" class="nav-link">Client Finder</a>
+                <a href="#tracker" class="nav-link">Tracker</a>
+                <a href="#settings" class="nav-link">Settings</a>
+            </nav>
+
+            <main id="main-content">
+                <!-- Dashboard Screen -->
+                <div id="dashboard-screen" class="screen active">
+                    <div class="welcome-section">
+                        <h1>Welcome to Outreach AI</h1>
+                        <p>Get ready to grow your business with cold outreach. Here's a quick look at your performance so far.</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>2,500</h3>
+                            <p>Mails generated</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>1,200</h3>
+                            <p>Replies received</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>500</h3>
+                            <p>Meetings booked</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compose Outreach Screen -->
+                <div id="compose-outreach-screen" class="screen">
+                    <div class="compose-outreach">
+                        <div class="step-indicator">
+                            <p>Step 1 of 4</p>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <p class="question">What type of business are you reaching out to?</p>
+                        <div class="form-group">
+                            <select class="form-select" id="businessTypeSelect">
+                                <option value="">Select a business type</option>
+                                <option value="cafe_restaurant">Café / Restaurant</option>
+                                <option value="clothing_lifestyle">Clothing / Lifestyle Store</option>
+                                <option value="event_planner">Event / Wedding Planner</option>
+                                <option value="freelancer_creator">Freelancer / Creator</option>
+                                <option value="gym_fitness">Gym / Fitness Coach</option>
+                                <option value="local_service">Local Service Provider</option>
+                                <option value="medical_clinic">Medical / Wellness Clinic</option>
+                                <option value="online_business">Online Business / eCommerce</option>
+                                <option value="photographer_videographer">Photographer / Videographer</option>
+                                <option value="real_estate">Real Estate Agent</option>
+                                <option value="salon_spa">Salon / Spa</option>
+                                <option value="tattoo_artist">Tattoo Artist / Studio</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="or-divider">OR</div>
+
+                        <div class="form-group">
+                            <textarea id="customBusinessType" placeholder="Enter a custom business type"></textarea>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn-next" id="nextButton">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personalization Screen -->
+                <div id="personalization-screen" class="screen">
+                    <div class="compose-outreach">
+                        <div class="step-indicator">
+                            <p>Step 2 of 4</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <h2 class="form-title">Enter personalization data</h2>
+                        <p class="form-subtitle">We'll use this to personalize your emails.</p>
+                        
+                        <div class="form-group">
+                            <label>Recipient's name</label>
+                            <input type="text" id="recipientName" placeholder="e.g Sahil" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Recipient's location</label>
+                            <input type="text" id="recipientLocation" placeholder="e.g India" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Portfolio links</label>
+                            <input type="text" id="portfolioLinks" placeholder="e.g www.myportfolio.com" class="form-input">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Service</label>
+                            <textarea id="service" class="form-input" placeholder="e.g Graphic Design"></textarea>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn-back">Back</button>
+                            <button class="btn-next" id="saveButton">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Lines Screen -->
+                <div id="subject-lines-screen" class="screen">
+                    <div class="compose-outreach">
+                        <div class="step-indicator">
+                            <p>Step 3 of 4</p>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <h2 class="form-title text-center">Craft Your Subject Lines</h2>
+                        <p class="form-subtitle text-center">
+                            The subject line is the first impression your cold email makes. It must be compelling to encourage the recipient to open it.
+                        </p>
+                        
+                        <div class="generate-button-container">
+                            <button class="generate-button" data-type="subject-line">
+                                Generate Subject Line
+                            </button>
+                        </div>
+
+                        <div class="subject-lines-list">
+                            <div class="subject-line-item">
+                                <div class="subject-line-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                                        <path d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z"></path>
+                                    </svg>
+                                </div>
+                                <div class="subject-line-content">
+                                    <p class="subject-line-title">Boost Your Brand Visibility Today</p>
+                                    <p class="subject-line-subtitle">Subject Line A</p>
+                                </div>
+                                <button class="copy-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                                        <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="subject-line-item">
+                                <div class="subject-line-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                                        <path d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z"></path>
+                                    </svg>
+                                </div>
+                                <div class="subject-line-content">
+                                    <p class="subject-line-title">Skyrocket Your Outreach Results</p>
+                                    <p class="subject-line-subtitle">Subject Line B</p>
+                                </div>
+                                <button class="copy-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                                        <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="subject-line-item">
+                                <div class="subject-line-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                                        <path d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z"></path>
+                                    </svg>
+                                </div>
+                                <div class="subject-line-content">
+                                    <p class="subject-line-title">Revolutionize Your Cold Email Approach</p>
+                                    <p class="subject-line-subtitle">Subject Line C</p>
+                                </div>
+                                <button class="copy-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                                        <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn-back">Back</button>
+                            <button class="btn-next" id="nextStepButton">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Content Screen -->
+                <div id="email-content-screen" class="screen">
+                    <div class="compose-outreach">
+                        <div class="step-indicator">
+                            <p>Step 4 of 4</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="email-header-section">
+                            <h2 class="form-title">Write your email</h2>
+                            <p class="form-subtitle">Craft your message to engage potential clients and highlight your value proposition.</p>
+                        </div>
+
+                        <div class="generate-button-container">
+                            <button class="generate-button" data-type="email">
+                                Generate Messages
+                            </button>
+                        </div>
+
+                        <div class="tone-selector">
+                            <a href="#" class="tone-option active" data-tone="professional">Professional</a>
+                            <a href="#" class="tone-option" data-tone="friendly">Friendly</a>
+                            <a href="#" class="tone-option" data-tone="casual">Casual</a>
+                            <a href="#" class="tone-option" data-tone="creative">Creative</a>
+                        </div>
+
+                        <div class="email-sections">
+                            <!-- Professional Email Section -->
+                            <div class="email-compose-section active" data-tone="professional">
+                                <label class="email-label">
+                                    <p>Professional Email</p>
+                                    <textarea class="email-textarea" data-tone="professional" placeholder="Write a professional and formal email that maintains a business-appropriate tone..." ></textarea>
+                                </label>
+                                <div class="copy-section">
+                                    <div class="copy-button-container">
+                                        <button class="copy-button-round" aria-label="Copy professional email">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                                <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                                            </svg>
+                                        </button>
+                                        <p>Copy</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Friendly Email Section -->
+                            <div class="email-compose-section" data-tone="friendly">
+                                <label class="email-label">
+                                    <p>Friendly Email</p>
+                                    <textarea class="email-textarea" data-tone="friendly" placeholder="Compose a warm and approachable email that builds rapport while maintaining professionalism..."></textarea>
+                                </label>
+                                <div class="copy-section">
+                                    <div class="copy-button-container">
+                                        <button class="copy-button-round" aria-label="Copy friendly email">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                                <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                                            </svg>
+                                        </button>
+                                        <p>Copy</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Casual Email Section -->
+                            <div class="email-compose-section" data-tone="casual">
+                                <label class="email-label">
+                                    <p>Casual Email</p>
+                                    <textarea class="email-textarea" data-tone="casual" placeholder="Write a relaxed and conversational email that feels natural and engaging..."></textarea>
+                                </label>
+                                <div class="copy-section">
+                                    <div class="copy-button-container">
+                                        <button class="copy-button-round" aria-label="Copy casual email">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                                <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                                            </svg>
+                                        </button>
+                                        <p>Copy</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Creative Email Section -->
+                            <div class="email-compose-section" data-tone="creative">
+                                <label class="email-label">
+                                    <p>Creative Email</p>
+                                    <textarea class="email-textarea" data-tone="creative" placeholder="Craft an innovative and attention-grabbing email that showcases creativity..."></textarea>
+                                </label>
+                                <div class="copy-section">
+                                    <div class="copy-button-container">
+                                        <button class="copy-button-round" aria-label="Copy creative email">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                                <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                                            </svg>
+                                        </button>
+                                        <p>Copy</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group" id="lastScreenBtn">
+                            <button class="btn-back">Back</button>
+                            <button class="btn-next">Finish</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Screen -->
+                <div id="result-screen" class="screen">
+                    <div class="compose-outreach">
+                        <div class="step-indicator">
+                            <p>Final Step</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-header-section">
+                            <h2 class="form-title">Your Generated Content</h2>
+                            <p class="form-subtitle">Here's your personalized outreach content ready to use.</p>
+                        </div>
+
+                        <div class="result-content">
+                            <!-- Subject Line Section -->
+                            <div class="result-section">
+                                <div class="result-section-header">
+                                    <h3>Subject Line</h3>
+                                    <div class="tag-container">
+                                        <span class="tag">Selected</span>
+                                    </div>
+                                </div>
+                                <div class="result-box">
+                                    <p id="finalSubjectLine" class="result-text"></p>
+                                    <button class="copy-button-round" data-copy="subject">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                            <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Email Content Section -->
+                            <div class="result-section">
+                                <div class="result-section-header">
+                                    <h3>Email Content</h3>
+                                    <div class="tag-container">
+                                        <span class="tag tone-tag">Professional</span>
+                                    </div>
+                                </div>
+                                <div class="result-box">
+                                    <div id="finalEmailContent" class="result-text email-content"></div>
+                                    <button class="copy-button-round" data-copy="email">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                            <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Summary Section -->
+                            <div class="result-summary">
+                                <div class="summary-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                                        <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path>
+                                    </svg>
+                                    <div class="summary-text">
+                                        <h4>Recipient</h4>
+                                        <p id="recipientSummary"></p>
+                                    </div>
+                                </div>
+                                <div class="summary-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                                        <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h40A8,8,0,0,1,176,128Z"></path>
+                                    </svg>
+                                    <div class="summary-text">
+                                        <h4>Generated on</h4>
+                                        <p id="generationTime"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="result-actions">
+                                <div class="result-buttons-right">
+                                    <button class="btn-back">Back</button>
+                                
+                                    <button class="btn-secondary" id="startNewButton">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-88a8,8,0,0,1-8,8H136v24a8,8,0,0,1-16,0V136H96a8,8,0,0,1,0-16h24V96a8,8,0,0,1,16,0v24h24A8,8,0,0,1,168,128Z"></path>
+                                        </svg>
+                                        Start New Outreach
+                                    </button>
+                                    <button class="btn-primary" id="downloadButton">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                            <path d="M224,152v56a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V152a8,8,0,0,1,16,0v56H208V152a8,8,0,0,1,16,0ZM77.66,141.66a8,8,0,0,0,11.31,0L120,110.63V184a8,8,0,0,0,16,0V110.63l31,31a8,8,0,0,0,11.31-11.31l-44.69-44.69a8,8,0,0,0-11.31,0L77.66,130.34A8,8,0,0,0,77.66,141.66Z"></path>
+                                        </svg>
+                                        Download Content
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+        <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- AI Configuration and Services -->
+    <script src="ai-config.js"></script>
+    <script src="huggingface-service.js"></script>
+
+    <!-- Firebase Configuration and Setup -->
+    <script src="firebase-config.js"></script>
+    <script src="firestore-setup.js"></script>
+    <script src="firestore-outreach.js"></script>
+
+    <!-- Main Dashboard Script -->
+    <script type="module" src="DashboardJS.js"></script>
+</body>
+</html>
