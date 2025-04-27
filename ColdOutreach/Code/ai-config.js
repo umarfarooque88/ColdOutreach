@@ -1,6 +1,6 @@
 // ai-config.js
 const HUGGINGFACE_CONFIG = {
-    API_TOKEN: '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',
+    API_TOKEN: 'YOUR_HUGGINGFACE_TOKEN',
     DEFAULT_MODEL: {
         subjectLine: 'deepseek-ai/DeepSeek-R1',  // DeepSeek model
         emailContent: 'deepseek-ai/DeepSeek-R1'  // Same model for email content
